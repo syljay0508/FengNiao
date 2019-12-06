@@ -144,6 +144,15 @@ if unusedFiles.isEmpty {
     exit(EX_OK)
 }
 
+
+for file in unusedFiles.sorted(by: { $0.size > $1.size }) {
+    print("\(file.readableSize) \(file.path.string)")
+}
+
+printResult(files: unusedFiles)
+
+exit(EX_OK)
+
 if !isForce {
     var result = promptResult(files: unusedFiles)
     while result == .list {

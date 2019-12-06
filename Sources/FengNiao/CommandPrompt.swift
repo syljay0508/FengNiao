@@ -34,8 +34,7 @@ public enum Action {
 }
 
 public func promptResult(files: [FileInfo]) -> Action {
-    let size = files.reduce(0) { $0 + $1.size }.fn_readableSize
-    print("\(files.count) unused files are found. Total Size: \(size)".yellow.bold)
+    printResult(files: files)
     print("What do you want to do with them? (l)ist|(d)elete|(i)gnore".bold, terminator: " ")
     
     guard let result = readLine() else {
@@ -48,3 +47,9 @@ public func promptResult(files: [FileInfo]) -> Action {
     default: return promptResult(files: files)
     }
 }
+
+public func printResult(files: [FileInfo]) -> Void {
+    let size = files.reduce(0) { $0 + $1.size }.fn_readableSize
+    print("\(files.count) unused files are found. Total Size: \(size)".yellow.bold)
+}
+
