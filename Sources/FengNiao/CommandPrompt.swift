@@ -51,5 +51,6 @@ public func promptResult(files: [FileInfo]) -> Action {
 public func printResult(files: [FileInfo]) -> Void {
     let size = files.reduce(0) { $0 + $1.size }.fn_readableSize
     print("\(files.count) unused files are found. Total Size: \(size)".yellow.bold)
+    print("result:\(files.count),\(size)")
 }
 

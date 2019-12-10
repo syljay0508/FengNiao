@@ -151,7 +151,7 @@ for file in unusedFiles.sorted(by: { $0.size > $1.size }) {
 
 printResult(files: unusedFiles)
 
-exit(EX_OK)
+exit(EX_USAGE)
 
 if !isForce {
     var result = promptResult(files: unusedFiles)
